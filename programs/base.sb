@@ -36,6 +36,8 @@ MOTOR_CLAW     = "A"
 MOTOR_ALL      = "ABCD"
 
 'STANDARD-FUNKTIONEN
+
+'simple forward
 sforward_time  = 100
 sforward_speed = 100
 
@@ -45,6 +47,8 @@ Sub sforward
   Motor.Stop(MOTOR_MOVEMENT, "true")
 EndSub
 
+
+'simple backward
 sbackward_time  = 50
 sbackward_speed = 50
 
@@ -53,8 +57,15 @@ Sub sbackward
   Program.Delay(sbackward_time)
   Motor.Stop(MOTOR_MOVEMENT, "true")
 EndSub
-  
-  While "true"
-    sforward()
-    sbackward()
-EndWhile
+
+'simple close claw | does not include current angle (setup at every run may be needed)
+Sub closeclaw
+  Motor.Move("A", -100, 2160, "true")
+EndSub
+
+'simple open claw | does not include current angle (setup at every run may be needed)
+Sub openclaw
+  Motor.Move("A", 100, 2160, "true")
+EndSub
+
+'Code
