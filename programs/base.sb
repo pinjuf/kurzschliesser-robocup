@@ -1,19 +1,20 @@
+'FARBSENSOREN
 COLOR_R = 2
 COLOR_L = 3
 
-COLOR_MODES["REFLECTION"] = 0
-COLOR_MODES["AMBIENT"]    = 1
-COLOR_MODES["STANDARD"]   = 2
-COLOR_MODES["RGB"]        = 4 'MUSS 4 SEIN (siehe https://sites.google.com/site/ev3basic/ev3-basic-programming/using-sensors)
+COLOR_MODES_REFLECTION    = 0
+COLOR_MODES_AMBIENT       = 1
+COLOR_MODES_STANDARD      = 2
+COLOR_MODES_RGB           = 4 'MUSS 4 SEIN (siehe https://sites.google.com/site/ev3basic/ev3-basic-programming/using-sensors)
 
-COLORS["UNKNOWN"] = 0
-COLORS["BLACK"]   = 1
-COLORS["BLUE"]    = 2
-COLORS["GREEN"]   = 3
-COLORS["YELLOW"]  = 4
-COLORS["RED"]     = 5
-COLORS["WHITE"]   = 6
-COLORS["BROWN"]   = 7
+COLORS_UNKNOWN    = 0
+COLORS_BLACK      = 1
+COLORS_BLUE       = 2
+COLORS_GREEN      = 3
+COLORS_YELLOW     = 4
+COLORS_RED        = 5
+COLORS_WHITE      = 6
+COLORS_BROWN      = 7
 COLORS[0]         = "UNKNOWN"
 COLORS[1]         = "BLACK"
 COLORS[2]         = "BLUE"
@@ -23,12 +24,37 @@ COLORS[5]         = "RED"
 COLORS[6]         = "WHITE"
 COLORS[7]         = "BLACK"
 
+'WEITERE SENSOREN
 ULTRASOUND    = 4
 GYRO          = 1
 
+'MOTOREN
 MOTOR_LEFT     = "B"
 MOTOR_RIGHT    = "C"
 MOTOR_MOVEMENT = "BC"
 MOTOR_CLAW     = "A"
 MOTOR_ALL      = "ABCD"
 
+'STANDARD-FUNKTIONEN
+sforward_time  = 100
+sforward_speed = 100
+
+Sub sforward
+  Motor.Start(MOTOR_MOVEMENT, sforward_speed)
+  Program.Delay(sforward_time)
+  Motor.Stop(MOTOR_MOVEMENT, "true")
+EndSub
+
+sbackward_time  = 50
+sbackward_speed = 50
+
+Sub sbackward
+  Motor.Start(MOTOR_MOVEMENT, -sbackward_speed)
+  Program.Delay(sbackward_time)
+  Motor.Stop(MOTOR_MOVEMENT, "true")
+EndSub
+  
+  While "true"
+    sforward()
+    sbackward()
+EndWhile
