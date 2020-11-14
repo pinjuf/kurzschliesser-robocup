@@ -14,3 +14,6 @@ COLOR_YELLOW  = 4
 COLOR_RED     = 5
 COLOR_WHITE   = 6
 COLOR_BROWN   = 7
+
+ULTRASOUND    = 4
+GYRO          = 1
