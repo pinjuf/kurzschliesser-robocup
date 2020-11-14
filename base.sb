@@ -1,0 +1,16 @@
+COLOR_R = 2
+COLOR_L = 3
+
+COLOR_REFLECTION = 0
+COLOR_AMBIENT    = 1
+COLOR_STANDARD   = 2
+COLOR_RGB        = 4 'MUSS 4 SEIN (siehe https://sites.google.com/site/ev3basic/ev3-basic-programming/using-sensors)
+
+COLOR_UNKNOWN = 0
+COLOR_BLACK   = 1
+COLOR_BLUE    = 2
+COLOR_GREEN   = 3
+COLOR_YELLOW  = 4
+COLOR_RED     = 5
+COLOR_WHITE   = 6
+COLOR_BROWN   = 7
