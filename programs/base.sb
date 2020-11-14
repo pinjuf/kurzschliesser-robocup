@@ -14,6 +14,14 @@ COLORS["YELLOW"]  = 4
 COLORS["RED"]     = 5
 COLORS["WHITE"]   = 6
 COLORS["BROWN"]   = 7
+COLORS[0]         = "UNKNOWN"
+COLORS[1]         = "BLACK"
+COLORS[2]         = "BLUE"
+COLORS[3]         = "GREEN"
+COLORS[4]         = "YELLOW"
+COLORS[5]         = "RED"
+COLORS[6]         = "WHITE"
+COLORS[7]         = "BLACK"
 
 ULTRASOUND    = 4
 GYRO          = 1
