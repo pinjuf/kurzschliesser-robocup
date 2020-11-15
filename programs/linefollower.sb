@@ -82,16 +82,16 @@ EndSub
 
 Sub grotation  'gyro rotation (positive degrees = clockwise)
   If degrees > 0 Then
-    Motor.Start(MOTOR_LEFT, brotspeed_forward)
-    Motor.Start(MOTOR_RIGHT, brotspeed_backward)
+    Motor.Start(MOTOR_LEFT, grotspeed_forward)
+    Motor.Start(MOTOR_RIGHT, grotspeed_backward)
     While Sensor.ReadRawValue(GYRO, 0) < degrees
       Program.Delay(10)
     EndWhile
     Motor.Stop(MOTOR_MOVEMENT, "true")
   EndIf
   If degrees < 0 Then
-    Motor.Start(MOTOR_RIGHT, brotspeed_forward)
-    Motor.Start(MOTOR_LEFT, brotspeed_backward)
+    Motor.Start(MOTOR_RIGHT, grotspeed_forward)
+    Motor.Start(MOTOR_LEFT, grotspeed_backward)
     While Sensor.ReadRawValue(GYRO, 0) > degrees
       Program.Delay(10)
     EndWhile
