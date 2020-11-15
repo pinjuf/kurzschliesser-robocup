@@ -1,0 +1,27 @@
+'use dps +- to adjust the brotation
+
+MOTOR_LEFT     = "B"
+MOTOR_RIGHT    = "C"
+MOTOR_MOVEMENT = "BC"
+
+degrees_per_second =  100
+brotspeed_forward  =  100
+brotspeed_backward = -100
+degrees            = 360
+
+Sub brotation
+  If degrees > 0 Then
+    Motor.Start(MOTOR_LEFT, brotspeed_forward)
+    Motor.Start(MOTOR_RIGHT, brotspeed_backward)
+    Program.Delay(degrees/degrees_per_second*1000)
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+  If degrees < 0 Then
+    Motor.Start(MOTOR_RIGHT, brotspeed_forward)
+    Motor.Start(MOTOR_LEFT, brotspeed_backward)
+    Program.Delay(degrees/degrees_per_second*1000)
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+EndSub
+
+brotation()
