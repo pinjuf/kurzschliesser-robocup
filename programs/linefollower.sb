@@ -90,5 +90,11 @@ Sub openclaw
   Motor.Move("A", 100, 2160, "true")
 EndSub
 
+'SET SENSOR MODES
+Sensor.SetMode(GYRO, 0)
+Sensor.SetMode(COLOR_R, COLOR_MODES_STANDARD)
+Sensor.SetMode(COLOR_L, COLOR_MODES_STANDARD)
+Sensor.SetMode(ULTRASOUND, 0)
+
 'Code
 brotation()
