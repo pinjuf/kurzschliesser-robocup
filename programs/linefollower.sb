@@ -112,7 +112,17 @@ Sub openclaw
   Motor.Move("A", 100, 2160, "true")
 EndSub
 
-'SET SENSOR MODES
+'simple lower claw
+Sub lowerclaw
+  Motor.Move("D", -75, 90, "true")
+EndSub
+
+'simple raise claw
+Sub raiseclaw
+  Motor.Move("D", 100, 90, "true")
+EndSub
+
+'SET STANDARD SENSOR MODES
 Sensor.SetMode(GYRO, 0)
 Sensor.SetMode(COLOR_R, COLOR_MODES_STANDARD)
 Sensor.SetMode(COLOR_L, COLOR_MODES_STANDARD)
