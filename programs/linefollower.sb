@@ -80,6 +80,25 @@ Sub brotation
   EndIf
 EndSub
 
+Sub grotation  'gyro rotation (positive degrees = clockwise)
+  If degrees > 0 Then
+    Motor.Start(MOTOR_LEFT, brotspeed_forward)
+    Motor.Start(MOTOR_RIGHT, brotspeed_backward)
+    While Sensor.ReadRawValue(GYRO, 0) < degrees
+      Program.Delay(10)
+    EndWhile
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+  If degrees < 0 Then
+    Motor.Start(MOTOR_RIGHT, brotspeed_forward)
+    Motor.Start(MOTOR_LEFT, brotspeed_backward)
+    While Sensor.ReadRawValue(GYRO, 0) > degrees
+      Program.Delay(10)
+    EndWhile
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+EndSub 
+
 'simple close claw | does not include current angle (setup at every run may be needed)
 Sub closeclaw
   Motor.Move("A", -100, 2160, "true")
