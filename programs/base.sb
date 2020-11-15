@@ -112,4 +112,14 @@ Sub openclaw
   Motor.Move("A", 100, 2160, "true")
 EndSub
 
+'simple lower claw
+Sub lowerclaw
+  Motor.Move("D", -100, 90, "true")
+EndSub
+
+'simple raise claw
+Sub raiseclaw
+  Motor.Move("D", 100, 90, "true")
+EndSub
+
 'Code
