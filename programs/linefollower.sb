@@ -1,0 +1,94 @@
+'FARBSENSOREN
+COLOR_R = 2
+COLOR_L = 3
+
+COLOR_MODES_REFLECTION    = 0
+COLOR_MODES_AMBIENT       = 1
+COLOR_MODES_STANDARD      = 2
+COLOR_MODES_RGB           = 4 'MUSS 4 SEIN (siehe https://sites.google.com/site/ev3basic/ev3-basic-programming/using-sensors)
+
+COLORS_UNKNOWN    = 0
+COLORS_BLACK      = 1
+COLORS_BLUE       = 2
+COLORS_GREEN      = 3
+COLORS_YELLOW     = 4
+COLORS_RED        = 5
+COLORS_WHITE      = 6
+COLORS_BROWN      = 7
+COLORS[0]         = "UNKNOWN"
+COLORS[1]         = "BLACK"
+COLORS[2]         = "BLUE"
+COLORS[3]         = "GREEN"
+COLORS[4]         = "YELLOW"
+COLORS[5]         = "RED"
+COLORS[6]         = "WHITE"
+COLORS[7]         = "BLACK"
+
+'WEITERE SENSOREN
+ULTRASOUND    = 4
+GYRO          = 1
+
+'MOTOREN
+MOTOR_LEFT     = "B"
+MOTOR_RIGHT    = "C"
+MOTOR_MOVEMENT = "BC"
+MOTOR_CLAW     = "A"
+MOTOR_ALL      = "ABCD"
+
+'STANDARD-FUNKTIONEN
+
+'simple forward
+sforward_time  = 100
+sforward_speed = 100
+
+Sub sforward
+  Motor.Start(MOTOR_MOVEMENT, sforward_speed)
+  Program.Delay(sforward_time)
+  Motor.Stop(MOTOR_MOVEMENT, "true")
+EndSub
+
+
+'simple backward
+sbackward_time  = 50
+sbackward_speed = 50
+
+Sub sbackward
+  Motor.Start(MOTOR_MOVEMENT, -sbackward_speed)
+  Program.Delay(sbackward_time)
+  Motor.Stop(MOTOR_MOVEMENT, "true")
+EndSub
+
+'basic rotation (positive degrees = clockwise) (the dps should be perfectly adjusted, if the speeds are reajusted, the dps need to be to)
+
+degrees_per_second =  100
+brotspeed_forward  =  100
+brotspeed_backward = -100
+degrees            = 90
+
+Sub brotation
+  If degrees > 0 Then
+    Motor.Start(MOTOR_LEFT, brotspeed_forward)
+    Motor.Start(MOTOR_RIGHT, brotspeed_backward)
+    Program.Delay(degrees/degrees_per_second*1000)
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+  If degrees < 0 Then
+    Motor.Start(MOTOR_RIGHT, brotspeed_forward)
+    Motor.Start(MOTOR_LEFT, brotspeed_backward)
+    Program.Delay(degrees/degrees_per_second*1000)
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+EndSub
+
+'simple close claw | does not include current angle (setup at every run may be needed)
+Sub closeclaw
+  Motor.Move("A", -100, 2160, "true")
+EndSub
+
+'simple open claw | does not include current angle (setup at every run may be needed)
+Sub openclaw
+  Motor.Move("A", 100, 2160, "true")
+EndSub
+
+'Code
+brotation()
