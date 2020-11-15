@@ -65,6 +65,9 @@ brotspeed_forward  =  100
 brotspeed_backward = -100
 degrees            = 90
 
+grotspeed_forward  =  100
+grotspeed_backward =  100
+
 Sub brotation
   If degrees > 0 Then
     Motor.Start(MOTOR_LEFT, brotspeed_forward)
@@ -76,6 +79,25 @@ Sub brotation
     Motor.Start(MOTOR_RIGHT, brotspeed_forward)
     Motor.Start(MOTOR_LEFT, brotspeed_backward)
     Program.Delay(degrees/degrees_per_second*1000)
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+EndSub
+
+Sub grotation  'gyro rotation (positive degrees = clockwise)
+  If degrees > 0 Then
+    Motor.Start(MOTOR_LEFT, grotspeed_forward)
+    Motor.Start(MOTOR_RIGHT, grotspeed_backward)
+    While Sensor.ReadRawValue(GYRO, 0) < degrees
+      Program.Delay(10)
+    EndWhile
+    Motor.Stop(MOTOR_MOVEMENT, "true")
+  EndIf
+  If degrees < 0 Then
+    Motor.Start(MOTOR_RIGHT, grotspeed_forward)
+    Motor.Start(MOTOR_LEFT, grotspeed_backward)
+    While Sensor.ReadRawValue(GYRO, 0) > degrees
+      Program.Delay(10)
+    EndWhile
     Motor.Stop(MOTOR_MOVEMENT, "true")
   EndIf
 EndSub
