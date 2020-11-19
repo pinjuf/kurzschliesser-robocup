@@ -119,7 +119,7 @@ EndSub
 
 'simple raise claw
 Sub raiseclaw
-  Motor.Move("D", 100, 90, "true")
+  Motor.Move("D", -75, 90, "true")
 EndSub
 
 'SET STANDARD SENSOR MODES
