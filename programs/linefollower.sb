@@ -1,1 +1,10 @@
 'This code need to be pasted in after the "'Code" comment in base.sb 
+If Sensor.ReadRawValue(COLOR_R, 0) = COLOR_BLACK Then
+  While Sensor.ReadRawValue(COLOR_R, 0) = COLOR_BLACK
+    Motor.movesteer(MOTOR_MOVEMENT, 50, -50, 250, "true")
+  EndWhile
+ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLOR_BLACK Then
+  While Sensor.ReadRawValue(COLOR_R, 0) = COLOR_BLACK
+    Motor.movesteer(MOTOR_MOVEMENT, -50, 50, 250, "true")
+  EndWhile
+EndIf
