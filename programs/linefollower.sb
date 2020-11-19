@@ -1,6 +1,6 @@
 'This code need to be pasted in after the "'Code" comment in base.sb 
 While "true"
-  Motor.Start(MOTOR_MOVEMENT, 75)
+  Motor.Start(MOTOR_MOVEMENT, 25)
   If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
     Motor.Stop(MOTOR_MOVEMENT, "false")
     Motor.StartSteer(MOTOR_MOVEMENT, 50, -50)
@@ -8,7 +8,7 @@ While "true"
       Program.Delay(1)
     EndWhile
     Motor.Stop(MOTOR_MOVEMENT, "true")
-    Motor.Start(MOTOR_MOVEMENT, 75)
+    Motor.Start(MOTOR_MOVEMENT, 25)
   ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
     Motor.Stop(MOTOR_MOVEMENT, "false")
     Motor.StartSteer(MOTOR_MOVEMENT, -50, 50)
@@ -16,6 +16,6 @@ While "true"
       Program.Delay(1)
     EndWhile
     Motor.Stop(MOTOR_MOVEMENT, "true")
-    Motor.Start(MOTOR_MOVEMENT, 75)
+    Motor.Start(MOTOR_MOVEMENT, 25)
   EndIf
 EndWhile
