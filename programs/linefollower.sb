@@ -18,7 +18,7 @@ While "true"
         Program.Delay(1)
       EndWhile
       Motor.Stop(MOTOR_MOVEMENT, "true")
-      Motor.Start(MOTOR_MOVEMENT, 25)
+      Motor.Start(MOTOR_MOVEMENT, -60)
       Program.Delay(100)
     EndIf
 EndWhile
