@@ -14,7 +14,7 @@ While "true"
     ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
       Motor.Stop(MOTOR_MOVEMENT, "false")
       Motor.StartSteer(MOTOR_MOVEMENT, 50, -50)
-      While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK
+      While Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK
         Program.Delay(1)
       EndWhile
       Motor.Stop(MOTOR_MOVEMENT, "true")
