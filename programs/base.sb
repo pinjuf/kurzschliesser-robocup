@@ -1,4 +1,4 @@
-'FARBSENSOREN
+'COLORSENSORS
 COLOR_R = 2
 COLOR_L = 3
 
@@ -24,16 +24,17 @@ COLORS[5]         = "RED"
 COLORS[6]         = "WHITE"
 COLORS[7]         = "BLACK"
 
-'WEITERE SENSOREN
+'FURTHER SENSOREN
 ULTRASOUND    = 4
 GYRO          = 1
 
-'MOTOREN
-MOTOR_LEFT     = "B"
-MOTOR_RIGHT    = "C"
-MOTOR_MOVEMENT = "BC"
-MOTOR_CLAW     = "A"
-MOTOR_ALL      = "ABCD"
+'MOTORS
+MOTOR_LEFT       = "B"
+MOTOR_RIGHT      = "C"
+MOTOR_MOVEMENT   = "BC"
+MOTOR_CLAW       = "A"
+MOTOR_CLAW_LEVEL = "D"
+MOTOR_ALL        = "ABCD"
 
 'STANDARD-FUNKTIONEN
 
@@ -104,22 +105,22 @@ EndSub
 
 'simple close claw | does not include current angle (setup at every run may be needed)
 Sub closeclaw
-  Motor.Move("A", -100, 2160, "true")
+  Motor.Move(MOTOR_CLAW, -100, 2160, "true")
 EndSub
 
 'simple open claw | does not include current angle (setup at every run may be needed)
 Sub openclaw
-  Motor.Move("A", 100, 2160, "true")
+  Motor.Move(MOTOR_CLAW, 100, 2160, "true")
 EndSub
 
 'simple lower claw
 Sub lowerclaw
-  Motor.Move("D", -75, 90, "true")
+  Motor.Move(MOTOR_CLAW_LEVEL, -75, 90, "true")
 EndSub
 
 'simple raise claw
 Sub raiseclaw
-  Motor.Move("D", -75, 90, "true")
+  Motor.Move(MOTOR_CLAW_LEVEL, -75, 90, "true")
 EndSub
 
 'SET STANDARD SENSOR MODES
