@@ -1,7 +1,6 @@
 'This code need to be pasted in after the "'Code" comment in base.sb
 mode = 1
 While "true"
-    If mode = 1 '1 = Follow Line, 2 = Rescue, ... Then
     Motor.Start(MOTOR_MOVEMENT, 25)
     If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
       Motor.Stop(MOTOR_MOVEMENT, "false")
@@ -20,6 +19,4 @@ While "true"
       Motor.Stop(MOTOR_MOVEMENT, "true")
       Motor.Start(MOTOR_MOVEMENT, 25)
     EndIf
-  ElseIf mode = 2 Then  
-  EndIf
 EndWhile
