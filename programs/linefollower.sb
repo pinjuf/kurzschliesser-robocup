@@ -1,21 +1,21 @@
 'This code need to be pasted in after the "'Code" comment in base.sb 
 While "true"
   Motor.Start(MOTOR_MOVEMENT, 75)
-  If Sensor.ReadRawValue(COLOR_R, 0) = COLOR_BLACK Then
+  If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
     Motor.Stop(MOTOR_MOVEMENT, "false")
     Motor.StartSteer(MOTOR_MOVEMENT, 50, -50)
-    While Sensor.ReadRawValue(COLOR_R, 0) = COLOR_BLACK
+    While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK
       Program.Delay(1)
     EndWhile
-    Motor.StopSteer(MOTOR_MOVEMENT, "true")
+    Motor.Stop(MOTOR_MOVEMENT, "true")
     Motor.Start(MOTOR_MOVEMENT, 75)
-  ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLOR_BLACK Then
+  ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
     Motor.Stop(MOTOR_MOVEMENT, "false")
     Motor.StartSteer(MOTOR_MOVEMENT, -50, 50)
-    While Sensor.ReadRawValue(COLOR_R, 0) = COLOR_BLACK
+    While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK
       Program.Delay(1)
     EndWhile
-    Motor.StopSteer(MOTOR_MOVEMENT, "true")
+    Motor.Stop(MOTOR_MOVEMENT, "true")
     Motor.Start(MOTOR_MOVEMENT, 75)
   EndIf
 EndWhile
