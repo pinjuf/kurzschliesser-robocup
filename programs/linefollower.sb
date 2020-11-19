@@ -9,8 +9,8 @@ While "true"
         Program.Delay(1)
       EndWhile
       Motor.Stop(MOTOR_MOVEMENT, "true")
-      Motor.Start(MOTOR_MOVEMENT, 25)
-      Program.Delay(100)
+      Motor.Start(MOTOR_MOVEMENT, -60)
+      Program.Delay(500)
     ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
       Motor.Stop(MOTOR_MOVEMENT, "false")
       Motor.StartSync(MOTOR_MOVEMENT, -80, 40)
@@ -19,6 +19,6 @@ While "true"
       EndWhile
       Motor.Stop(MOTOR_MOVEMENT, "true")
       Motor.Start(MOTOR_MOVEMENT, -60)
-      Program.Delay(100)
+      Program.Delay(500)
     EndIf
 EndWhile
