@@ -3,7 +3,7 @@ While "true"
   Motor.Start(MOTOR_MOVEMENT, 25)
   If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
     Motor.Stop(MOTOR_MOVEMENT, "false")
-    Motor.StartSteer(MOTOR_MOVEMENT, 50, -50)
+    Motor.StartSteer(MOTOR_MOVEMENT, -50, 50)
     While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK
       Program.Delay(1)
     EndWhile
@@ -11,7 +11,7 @@ While "true"
     Motor.Start(MOTOR_MOVEMENT, 25)
   ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
     Motor.Stop(MOTOR_MOVEMENT, "false")
-    Motor.StartSteer(MOTOR_MOVEMENT, -50, 50)
+    Motor.StartSteer(MOTOR_MOVEMENT, 50, -50)
     While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK
       Program.Delay(1)
     EndWhile
