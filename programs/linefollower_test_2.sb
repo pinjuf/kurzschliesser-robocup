@@ -10,6 +10,6 @@ While "true"
       Motor.Move(MOTOR_RIGHT, 50, 200, "true")
       Motor.Move(MOTOR_LEFT, -50, 200, "true")
     ElseIf Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
-      Motor.Stop(MOTORMOVEMENT, "true")
+      Motor.Stop(MOTOR_MOVEMENT, "true")
     EndIf
 EndWhile
