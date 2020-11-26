@@ -1,5 +1,4 @@
 'This code need to be pasted in after the "'Code" comment in base.sb
-mode = 1
 While "true"
     Motor.Start(MOTOR_MOVEMENT, 25)
     If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
