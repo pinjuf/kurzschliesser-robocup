@@ -20,4 +20,5 @@ While "true"
       If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
         Motor.MoveSync(MOTOR_MOVEMENT, -80, 40, 200, "true")
       EndIf
+    EndIf
 EndWhile
