@@ -4,20 +4,20 @@ While "true"
     If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
       Motor.Stop(MOTOR_MOVEMENT, "false")
       Motor.StartSync(MOTOR_MOVEMENT, 40, -80)
-      While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK
+      While Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) <> COLORS_BLACK
         Program.Delay(1)
       EndWhile
+      If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
+        Motor.MoveSync(MOTOR_MOVEMENT, 40, -80, 200, "true")
+      EndIf
       Motor.Stop(MOTOR_MOVEMENT, "true")
-      Motor.Start(MOTOR_MOVEMENT, -60)
-      Program.Delay(200)
     ElseIf Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
       Motor.Stop(MOTOR_MOVEMENT, "false")
       Motor.StartSync(MOTOR_MOVEMENT, -80, 40)
-      While Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK
+      While Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK  And Sensor.ReadRawValue(COLOR_R, 0) <> COLORS_BLACK
         Program.Delay(1)
       EndWhile
-      Motor.Stop(MOTOR_MOVEMENT, "true")
-      Motor.Start(MOTOR_MOVEMENT, -60)
-      Program.Delay(200)
-    EndIf
+      If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
+        Motor.MoveSync(MOTOR_MOVEMENT, -80, 40, 200, "true")
+      EndIf
 EndWhile
