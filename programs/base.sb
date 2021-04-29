@@ -5,7 +5,7 @@ COLOR_L = 3
 COLOR_MODES_REFLECTION    = 0
 COLOR_MODES_AMBIENT       = 1
 COLOR_MODES_STANDARD      = 2
-COLOR_MODES_RGB           = 4 'MUSS 4 SEIN (siehe https://sites.google.com/site/ev3basic/ev3-basic-programming/using-sensors)
+COLOR_MODES_RGB           = 4 'HAS TO BE 4 (siehe https://sites.google.com/site/ev3basic/ev3-basic-programming/using-sensors)
 
 COLORS_UNKNOWN    = 0
 COLORS_BLACK      = 1
