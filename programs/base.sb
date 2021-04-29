@@ -59,7 +59,7 @@ Sub sbackward
   Motor.Stop(MOTOR_MOVEMENT, "true")
 EndSub
 
-'basic rotation (positive degrees = clockwise) (the dps should be perfectly adjusted, if the speeds are reajusted, the dps need to be to)
+'basic rotation (positive degrees = clockwise) (the dps should be perfectly adjusted, if the speeds are reajusted, the dps need to be too)
 
 degrees_per_second =  100
 brotspeed_forward  =  100
