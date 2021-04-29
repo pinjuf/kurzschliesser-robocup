@@ -3,7 +3,7 @@
 
 The Robocup-Repository of Team Kurzschließer (BRG Petersgasse).
 
-## Aufbau
+## Contents
 
 programs/base.sb         : A code base, contains multiple standardised values.
 
