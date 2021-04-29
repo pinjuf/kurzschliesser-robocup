@@ -24,7 +24,7 @@ COLORS[5]         = "RED"
 COLORS[6]         = "WHITE"
 COLORS[7]         = "BLACK"
 
-'FURTHER SENSOREN
+'FURTHER SENSORS
 ULTRASOUND    = 4
 GYRO          = 1
 
@@ -36,7 +36,7 @@ MOTOR_CLAW       = "A"
 MOTOR_CLAW_LEVEL = "D"
 MOTOR_ALL        = "ABCD"
 
-'STANDARD-FUNKTIONEN
+'STANDARD FUNCTIONS
 
 'simple forward
 sforward_time  = 100
