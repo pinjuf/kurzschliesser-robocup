@@ -1,10 +1,10 @@
 'This code need to be pasted in after the "'Code" comment in base.sb
 black_right_count = 0
-black_left_count
+black_left_count = 0
 While "true"
   Motor.Start(MOTOR_MOVEMENT, 25)
   If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
-    black_right_count = black_count + 1
+    black_right_count = black_right_count + 1
     black_left_count = 0
       If black_right_count = 5 Then  
         Motor.Stop(MOTOR_MOVEMENT, "false")
