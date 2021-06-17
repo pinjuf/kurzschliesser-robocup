@@ -1,6 +1,7 @@
 'This code need to be pasted in after the "'Code" comment in base.sb
 black_right_count = 0
-black_left_count = 0
+lack_left_count = 0
+
 While "true"
   Motor.Start(MOTOR_MOVEMENT, 25)
   If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK Then
@@ -13,7 +14,7 @@ While "true"
           Program.Delay(1)
         EndWhile
         If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
-          Motor.MoveSync(MOTOR_MOVEMENT, 40, -80, 200, "true")
+          Motor.MoveSync(MOTOR_MOVEMENT, 40, -80, 100, "true")
         EndIf
         Motor.Stop(MOTOR_MOVEMENT, "true")
     EndIf
@@ -27,7 +28,7 @@ While "true"
         Program.Delay(1)
       EndWhile
       If Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK Then
-        Motor.MoveSync(MOTOR_MOVEMENT, -80, 40, 200, "true")
+        Motor.MoveSync(MOTOR_MOVEMENT, -80, 40, 100, "true")
       EndIf
     EndIf
   Else
