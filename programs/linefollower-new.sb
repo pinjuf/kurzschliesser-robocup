@@ -1,0 +1,76 @@
+count = 0
+Motor.Start(MOTOR_MOVEMENT, 40)
+LCD.Write(10, 20, "STATE: forward")
+
+last_line = 0
+
+While "true"
+  If (Sensor.ReadRawValue(COLOR_L, 0) = COLORS_UNKNOWN Or Sensor.ReadRawValue(COLOR_R, 0) = COLORS_UNKNOWN) Then
+    Motor.Stop(MOTOR_ALL, "true")
+  EndIf
+  If (Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK) Then
+    last_line = COLOR_R
+    LCD.Write(10, 20, "STATE: turn right start")
+    Motor.Stop(MOTOR_MOVEMENT, "false")
+    
+    Motor.StartSync(MOTOR_MOVEMENT, 30, -30)
+    LCD.Write(10, 20, "STATE: turn right sync")
+    
+    While (Sensor.ReadRawValue(COLOR_R, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) <> COLORS_GREEN And Sensor.ReadRawValue(COLOR_R, 0) <> COLORS_GREEN)
+      LCD.Write(10, 20, "STATE: turn right RIGHT")
+      Program.Delay(1)
+    EndWhile
+
+  ElseIf (Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK) Then
+    last_line = COLOR_L
+    LCD.Write(10, 20, "STATE: turn left start")
+    Motor.Stop(MOTOR_MOVEMENT, "false")
+    
+    Motor.StartSync(MOTOR_MOVEMENT, -30, 30)
+    LCD.Write(10, 20, "STATE: turn left sync")
+    
+    While (Sensor.ReadRawValue(COLOR_L, 0) = COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) <> COLORS_GREEN And Sensor.ReadRawValue(COLOR_R, 0) <> COLORS_GREEN)
+      LCD.Write(10, 20, "STATE: turn left LEFT")
+      Program.Delay(1)
+    EndWhile
+  Else
+    count = count + 1
+    LCD.Write(10, 20, "STATE: forward")
+    Motor.Start(MOTOR_MOVEMENT, 40)
+    If (count >= 750) Then
+      count = 0
+      searchLine()
+    EndIf
+    Program.Delay(1)
+    If (Sensor.ReadRawValue(COLOR_R, 0) = COLORS_GREEN) Then
+      Motor.StartSync(MOTOR_MOVEMENT, 40, 0)
+      Program.Delay(1500)
+      While (Sensor.ReadRawValue(COLOR_R, 0) <> COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) <> COLORS_BLACK)
+        Program.Delay(1)
+      EndWhile
+      Motor.Stop(MOTOR_MOVEMENT, "false")
+    ElseIf (Sensor.ReadRawValue(COLOR_L, 0) = COLORS_GREEN) Then
+      Motor.StartSync(MOTOR_MOVEMENT, 0, 40)
+      Program.Delay(1500)
+      While (Sensor.ReadRawValue(COLOR_R, 0) <> COLORS_BLACK And Sensor.ReadRawValue(COLOR_L, 0) <> COLORS_BLACK)
+        Program.Delay(1)
+      EndWhile
+      Motor.Stop(MOTOR_MOVEMENT, "false")
+    EndIf
+  EndIf
+EndWhile
+
+
+Sub searchLine
+  If (last_line = COLOR_L) Then
+  Motor.StartSync(MOTOR_MOVEMENT, -30, 30) 
+  Else
+    Motor.StartSync(MOTOR_MOVEMENT, 30, -30)
+  EndIf
+
+  While (Sensor.ReadRawValue(COLOR_L, 0) <> COLORS_BLACK) And (Sensor.ReadRawValue(COLOR_R, 0) <> COLORS_BLACK)
+    Program.Delay(1)
+  EndWhile
+  Motor.Stop(MOTOR_MOVEMENT, "false")
+EndSub
+
